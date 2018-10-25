@@ -5,6 +5,7 @@ body{
   }
   header{
     text-align: center;
+    font-size: 50px;
   }
   canvas{
   	background: #4E4E4E;

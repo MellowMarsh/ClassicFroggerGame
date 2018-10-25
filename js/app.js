@@ -539,11 +539,11 @@ function timer() {
 	time = time - 0.1;
 	}
 }
-
+//replay button appears
 function winScreen() {
-	ctx.fillStyle = "yellow";
+	ctx.fillStyle = "#dfff80";
 	ctx.fillRect(0,0,canvas.width,canvas.height);
-	ctx.fillStyle = "green";
+	ctx.fillStyle = "#80ff80";
 	ctx.fillRect(canvas.width/2 - 120,320,240,140);
 	ctx.font = "72px Arial";
 	ctx.fillText("GAME OVER", 60, 160);
@@ -552,7 +552,7 @@ function winScreen() {
 	ctx.fillStyle = "black";
 	ctx.fillText("REPLAY", 200, 400);
 }
-
+//replay button appears
 function loseScreen() {
 	ctx.fillStyle = "#dfff80";
 	ctx.fillRect(0,0,canvas.width,canvas.height);
