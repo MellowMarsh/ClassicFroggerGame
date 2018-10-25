@@ -1,0 +1,18 @@
+body{
+  max-width: 800px;
+  margin: auto;
+  	background:  #66ff66;
+  }
+  header{
+    text-align: center;
+  }
+  canvas{
+  	background: #4E4E4E;
+  	border: 4px solid #00ffff;
+  }
+  a{
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  text-decoration: none;
+  color: white;
+  font-size: xx-large;
+  }
