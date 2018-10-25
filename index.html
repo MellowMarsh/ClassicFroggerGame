@@ -1,75 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-
+<!doctype html>
+<html>
 <head>
-
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Memory Game</title>
-    <meta name="description" content="html,css,javascript">
-    <meta name="author" content="Marshalla Robinson">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--bootstrap CDN-->
-    <link rel="stylesheet prefetch" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc=
-    sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/app.css">
-
+<meta charset="utf-8">
+<title>Classic Frogger Game</title>
+<meta name="description" content="html,css,javascript">
+<meta name="author" content="Marshalla Robinson">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-  <div class="container-fluid">
-
-    <header class="gamestats">
-      <h1>Memory Match Game</h1>
-<section class="scoreboard">
-<div id="myTime"></div>
-  <div class="moves">Total Moves</div>
-  <div id="restart" class="btn btn-default">
-      <i class="fa fa-repeat" aria-hidden="true"></i>
-  </div>
-
-      <ul class="icons">
-        		<li><i   class="fa fa-star"></i></li>
-        		<li><i  class="fa fa-star"></i></li>
-        		<li><i  class="fa fa-star"></i></li>
-        	</ul>
-        </section>
-
-</header>
-
-  <div id="gameboard"></div>
-</div>
-
-<!-- Modal Popup-->
-<div class="modal fade" id="myModal" aria-hidden="true">
-  <div class= "modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <!--restart game-->
-        <button  type="button"  class="close" onclick="startGame( )" data-dismiss="modal">x</button>
-      <h2 class="modal-title">Congratulations!</h2>
-    </div>
-      <div class="modal-body">
-        <p id="stats"></p>
-        <div>
-        <p id="stars"></p>
-      </div>
-    </div>
-    <div class="modal-footer">
-        <!--restart game-->
-      <button type="button"  class="btn btn-default" onclick="startGame( )" data-dismiss="modal">Play Again!</button>
-    </div>
-    </div><!--end modal content-->
-  </div><!--end.modal-dialog-->
-</div><!--end.modal-->
-
-  <!--End Modal-->
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  <script src="js/app.js"></script>
-</body>
-</html>
+  <header>Classic Frogger Game</header>
+  <canvas id="canvas" style="width: 100%;" width="570" height="540"></canvas>
+ <script src="js/app.js"></script>
+ </body>
+  </html>

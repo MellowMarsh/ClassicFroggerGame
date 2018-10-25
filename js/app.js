@@ -1,5 +1,4 @@
-
-// JavaScript Document
+//classic frogger game using object oriented javascript
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
 
