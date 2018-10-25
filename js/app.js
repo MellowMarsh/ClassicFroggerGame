@@ -1,4 +1,4 @@
-// JavaScript Document
+
 // JavaScript Document
 var canvas = document.getElementById('canvas');
 var ctx = canvas.getContext('2d');
@@ -17,11 +17,12 @@ var rightPressed = false;
 var leftPressed = false;
 var upPressed = false;
 var downPressed = false;
+// press a key down, this information is stored in a variable
 var up = true;
 var down = true;
 var right = true;
 var left = true;
-
+//eight cars total for game
 var car = new Image(); car.src = "images/froggercars.png";
 var carX1 = 100;
 var carSX1 = 0;
@@ -128,13 +129,13 @@ function onMouseClick(e) {
 		time = 280;
 }
 
-
+//Defining a drawing loop for animation
 function drawBackground(){
-// drawing two strips of grass
-ctx.fillStyle = " #6600cc";
+// drawing two strips for grass
+ctx.fillStyle = "lime";
 ctx.fillRect(0, 440, 570, 45);
 ctx.fillRect(0, 220, 570, 45);
-
+//add a dashed horizontal line to represent a lane boundary for our cars
 ctx.beginPath();
 ctx.moveTo(0,395);
 ctx.lineTo (570,395);
@@ -163,12 +164,13 @@ ctx.stroke();
 ctx.fillStyle = "blue";
 ctx.fillRect(0, 0, 570, 220);
 }
-
+// initialize all the variables for our drawImage method
 function drawFrog(){
 	ctx.drawImage(frog, sx, sy, swidth, sheight, x, y, width, height);
 }
-
+//want our frog to face right if he is moving to the right and left if he is moving to the left
 function moveFrog(){
+  //code will restrict up movement
 	if (upPressed===true && up===true && y > 20) {
 	y = y - 44;
 	up = false;
@@ -177,7 +179,7 @@ function moveFrog(){
 if (upPressed===false) {
 	up = true;
 	}
-
+//restrict down movement
 if (downPressed===true && down===true && y + height < canvas.height - 80) {
 	y = y + 44;
 	down = false;
@@ -186,7 +188,7 @@ if (downPressed===true && down===true && y + height < canvas.height - 80) {
 if (downPressed===false) {
 	down = true;
 	}
-
+//will restrict right movement
 if (rightPressed===true && right===true && x + width < canvas.width-20) {
 	x = x + 44;
 	right = false;
@@ -195,7 +197,7 @@ if (rightPressed===true && right===true && x + width < canvas.width-20) {
 if (rightPressed===false) {
 	right = true;
 	}
-
+//will restrict left movement
 if (leftPressed===true && left===true && x > 20) {
 	x = x - 44;
 	left = false;
@@ -284,11 +286,12 @@ function moveCars(){
 		 }
 }
 
+//function that will check to see if the frog and the car are overlapping
 function runOver (){
 
 	var carsX = [carX1, carX2, carX3, carX4, carX5, carX6, carX7, carX8];
 	var carsY = [carY1, carY2, carY3, carY4, carY5, carY6, carY7, carY8];
-
+ //for loop that will check for x and y values
 	for (i = 0; i < carsX.length; i++){
 		if (carsX[i] <= x + width &&
 		carsX[i] + carWidth >= x &&
@@ -301,15 +304,15 @@ function runOver (){
 }
 
 function drawLogs(){
-	ctx.fillStyle = "tan";
+	ctx.fillStyle = "brown";
 	var logsX = [logX1, logX2, logX3, logX4, logX5, logX6, logX7, logX8];
 	var logsY = [logY1, logY2, logY3, logY4, logY5, logY6, logY7, logY8];
-
+// draw logs by simply adding new variables for the x and y positions of the rectangle.
 	for (i = 0; i < logsX.length; i++){
 	ctx.fillRect(logsX[i], logsY[i], logWidth, logHeight);
 	}
 }
-
+// function to create a left to right 2 pixels per frame scrolling animation.
 function moveLogs(){
  if (logX1 < canvas.width + 100) {
 	 logX1 = logX1 + 2;
@@ -367,7 +370,8 @@ function moveLogs(){
 		 logX8 = canvas.width + 100;
 		 }
 }
-
+// function to check if any part of the log rectangle is “overlapping” the frog’s space
+//If you preview in browser, the frog should be able to float on the log and return to the bottom if it hits the water.
 function float(){
 	if (logX1 <= x + width &&
 				logX1 + logWidth >= x &&
@@ -522,7 +526,7 @@ function onPad(){
 		}
 	}
 }
-
+//3 lives per game
 function drawLives() {
 	// count and display lives left
 	ctx.fillStyle = "white";
@@ -543,7 +547,7 @@ function timer() {
 function winScreen() {
 	ctx.fillStyle = "#dfff80";
 	ctx.fillRect(0,0,canvas.width,canvas.height);
-	ctx.fillStyle = "#80ff80";
+	ctx.fillStyle = "#9422DF";
 	ctx.fillRect(canvas.width/2 - 120,320,240,140);
 	ctx.font = "72px Arial";
 	ctx.fillText("GAME OVER", 60, 160);
@@ -556,7 +560,7 @@ function winScreen() {
 function loseScreen() {
 	ctx.fillStyle = "#dfff80";
 	ctx.fillRect(0,0,canvas.width,canvas.height);
-	ctx.fillStyle = "#80ff80";
+	ctx.fillStyle = "#9422DF";
 	ctx.fillRect(canvas.width/2 - 120,320,240,140);
 	ctx.font = "72px Arial";
 	ctx.fillText("GAME OVER", 60, 160);
@@ -564,7 +568,7 @@ function loseScreen() {
 	ctx.fillStyle = "black";
 	ctx.fillText("REPLAY", 200, 400);
 }
-
+//executes all functions within the game
 function draw(){
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
