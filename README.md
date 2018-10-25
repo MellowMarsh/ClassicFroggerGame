@@ -23,10 +23,5 @@
 
 * Frogger Tutorial  
   https://sgd.cs.colorado.edu/wiki/Frogger_Tutorial
-  
-* StackOverflow
-  https://stackoverflow.com/questions/23870938/math-random-function-not-properly-working-in-javascript-with-if-statement
-  
-* MDN
-  https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+  http://theteacher.info/index.php/free-videos/sets-of-video-lessons/scratch-frogger
   
