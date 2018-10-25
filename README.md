@@ -1,5 +1,7 @@
 # FroggerArcadeGame
 
+Ready to get your leap on? The game is not easy but be patient you can do it. Get a frog to every lily pad and you are a Winner! Watch out for traffic and use the floating logs along the way.
+
 ## Installing from Source
 
 * Clone the following repo:
@@ -11,22 +13,25 @@
 
 ## Game Goal and How to Play:
 
-* The goal is to get frog across the street over the logs and ending on the lily pads. 
+* The goal is to get the frog across the street over the logs and landing on a lily pad. 
 
 * Using the arrow keys on your keyboard, move up, down, or side to side.
 
 * Try and avoid the traffic.
 
-* Reach the lily pads by jumping onto the logs.
+* Reach the lily pads by jumping onto the logs floating in river.
 
 * Given 3 lives. Game Over window will be prompted when all lives are gone.
 
-* Frogs must reach each lily pad to promt Winner Window.
+* A frogs must reach each lily pad to promt Winner Window. There are six total.
 
 * You can replay game with replay button.
 
 ## Tools Used:
 
+* Code Your First Game: Arcade Classic in JavaScript on Canvas created by:Chris DeLeon 
+  https://www.udemy.com/code-your-first-game/
+  
 * Frogger Tutorial  
   https://sgd.cs.colorado.edu/wiki/Frogger_Tutorial
   http://theteacher.info/index.php/free-videos/sets-of-video-lessons/scratch-frogger
