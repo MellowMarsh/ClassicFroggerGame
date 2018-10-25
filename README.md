@@ -20,6 +20,9 @@
 * You can replay game with replay button.
 
 ## Tools Used:
+
+* Frogger Tutorial  
+  https://sgd.cs.colorado.edu/wiki/Frogger_Tutorial
   
 * StackOverflow
   https://stackoverflow.com/questions/23870938/math-random-function-not-properly-working-in-javascript-with-if-statement
