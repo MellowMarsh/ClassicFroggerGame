@@ -19,6 +19,10 @@
 
 * Reach the lily pads by jumping onto the logs.
 
+* Given 3 lives. Game Over window will be prompted when all lives are gone.
+
+* Frogs must reach each lily pad to promt Winner Window.
+
 * You can replay game with replay button.
 
 ## Tools Used:
