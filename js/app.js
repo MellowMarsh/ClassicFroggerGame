@@ -1,4 +1,6 @@
-//using object oriented javascript// a simple frogger type game written in JavaScript (without jQuery or any other JavaScript library) and rendered on HTML5
+//using object oriented javascript
+//a simple frogger type game written in JavaScript (without jQuery or any other JavaScript library) and rendered on HTML5
+
 // storing a reference to the <canvas> element to the canvas variable
 var canvas = document.getElementById('canvas');
 //ctx variable to store the 2D rendering context — the actual tool we can use to paint on the Canvas
