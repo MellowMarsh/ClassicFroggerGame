@@ -1,6 +1,4 @@
-//using object oriented javascript
-// a simple frogger type game written in JavaScript (without jQuery or any other JavaScript library) and rendered on HTML5
-
+//using object oriented javascript// a simple frogger type game written in JavaScript (without jQuery or any other JavaScript library) and rendered on HTML5
 // storing a reference to the <canvas> element to the canvas variable
 var canvas = document.getElementById('canvas');
 //ctx variable to store the 2D rendering context — the actual tool we can use to paint on the Canvas
@@ -109,7 +107,7 @@ document.addEventListener("keyup", keyUpHandler, false);
 
 document.addEventListener("click", onMouseClick, false);
 
-//When we press a key down, this information is stored in a variable. The relevant variable in each case isset to true. When the key is released, the variable is set back to false.
+//When we press a key down, this information is stored in a variable. The relevant variable in each case is set to true. When the key is released, the variable is set back to false.
 
 //function for when keys are pressed
 function keyDownHandler(e)
@@ -389,10 +387,10 @@ function moveLogs(){
 		 logX8 = canvas.width + 100;
 		 }
 }
-// function to check if any part of the log rectangle is “overlapping” the frog’s space,only checking for y less than 220 because that is where the “water” begins.
+//function to check if any part of the log rectangle is “overlapping” the frog’s space,only checking for y less than 220 because that is where the “water” begins.
 //If you preview in browser, the frog should be able to float on the log and return to the bottom if it hits the water.
 function float(){
-  //After entering this code all logs should allow frog floating
+//After entering this code all logs should allow frog floating
 	if (logX1 <= x + width &&
 				logX1 + logWidth >= x &&
 				logY1 + logHeight >= y &&
@@ -469,7 +467,7 @@ function float(){
 		lives = lives -1;
 		}
 }
-// program the game so that if a frog reaches a pad, an image of the frog will remain on the pad and the frog will return to the bottom of the canvas.
+//program the game so that if a frog reaches a pad, an image of the frog will remain on the pad and the frog will return to the bottom of the canvas.
 function drawPads(){
 	ctx.fillStyle = "seagreen";
 	var padsX = [padX1, padX2, padX3, padX4, padX5, padX6];
@@ -563,7 +561,7 @@ function timer() {
 	}
 }
 //replay button appears on game completion
-// will draw text  when the player frog wins
+//will draw text  when the player frog wins
 function winScreen() {
 	ctx.fillStyle = "#0000FF";
 	ctx.fillRect(0,0,canvas.width,canvas.height);
@@ -577,7 +575,7 @@ function winScreen() {
 	ctx.fillText("REPLAY", 200, 400);
 }
 //replay button appears
-// will draw text when the frog runs out of lives
+//will draw text when the frog runs out of lives
 function loseScreen() {
 	ctx.fillStyle = "#DF223B";
 	ctx.fillRect(0,0,canvas.width,canvas.height);
@@ -590,7 +588,7 @@ function loseScreen() {
 	ctx.fillText("REPLAY", 200, 400);
 }
 
-// With the requestAnimationFrame loop, the draw() function will be executed every time your screen refreshes.
+//With the requestAnimationFrame loop, the draw() function will be executed every time your screen refreshes.
 //Add the If statement in the draw() function to determine whether the gameOver() and drawLives() functions are executed.
 function draw(){
 //Add the clearRect method as shown to clear the canvas with each execution of the draw function.
