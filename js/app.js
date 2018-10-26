@@ -1,5 +1,9 @@
-//classic frogger game using object oriented javascript
+//using object oriented javascript
+// a simple frogger type game written in JavaScript (without jQuery or any other JavaScript library) and rendered on HTML5
+
+// storing a reference to the <canvas> element to the canvas variable
 var canvas = document.getElementById('canvas');
+//ctx variable to store the 2D rendering context — the actual tool we can use to paint on the Canvas
 var ctx = canvas.getContext('2d');
 
 var frog = new Image(); frog.src = "images/frogger.png";
@@ -12,11 +16,13 @@ var y = 444;
 var width = 30;
 var height = 30;
 
+//Pressed buttons can be defined and initialized with boolean variables
+//The default values are false because at the beginning the control buttons are not pressed.
 var rightPressed = false;
 var leftPressed = false;
 var upPressed = false;
 var downPressed = false;
-// press a key down, this information is stored in a variable
+//Four variables for storing information on whether the up, down, left or right control button is pressed.
 var up = true;
 var down = true;
 var right = true;
@@ -25,9 +31,11 @@ var left = true;
 var car = new Image(); car.src = "images/froggercars.png";
 var carX1 = 100;
 var carSX1 = 0;
+// these variables are used to create a collision detection between frog and car
 var carY1 = 400;
 var carWidth = 60;
 var carHeight = 35;
+
 var carX2 = 500;
 var carSX2 = 60;
 var carY2 = 400;
@@ -49,7 +57,7 @@ var carY7 = 310;
 var carX8 = 160;
 var carSX8 = 0;
 var carY8 = 265;
-
+//the logWidth and logHeight will not vary, assigning descriptive names to these values will help in setting up our collision test between frog and log
 var logX1 = 300;
 var logY1 = 180;
 var logWidth = 120;
@@ -95,11 +103,15 @@ var lives = 3;
 var play = true;
 var time = 280;
 
+//code to handle the paddle movement when the buttons are pressed
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 
 document.addEventListener("click", onMouseClick, false);
 
+//When we press a key down, this information is stored in a variable. The relevant variable in each case isset to true. When the key is released, the variable is set back to false.
+
+//function for when keys are pressed
 function keyDownHandler(e)
 {
   if(e.keyCode === 39) {rightPressed = true;}
@@ -107,7 +119,7 @@ function keyDownHandler(e)
   if(e.keyCode === 38) {upPressed = true;}
   if(e.keyCode === 40) {downPressed = true;}
 }
-
+//function for when the keys stop being pressed
 function keyUpHandler(e)
 {
   if(e.keyCode === 39) {rightPressed = false;}
@@ -128,13 +140,14 @@ function onMouseClick(e) {
 		time = 280;
 }
 
-//Defining a drawing loop for animation
+
 function drawBackground(){
 // drawing two strips for grass
 ctx.fillStyle = "lime";
 ctx.fillRect(0, 440, 570, 45);
 ctx.fillRect(0, 220, 570, 45);
-//add a dashed horizontal line to represent a lane boundary for our cars
+
+//add a dashed horizontal line to represent a lane boundary for the cars
 ctx.beginPath();
 ctx.moveTo(0,395);
 ctx.lineTo (570,395);
@@ -163,13 +176,15 @@ ctx.stroke();
 ctx.fillStyle = "blue";
 ctx.fillRect(0, 0, 570, 220);
 }
+// use the drawImage() method to draw an image to represent our frog.
 // initialize all the variables for our drawImage method
 function drawFrog(){
 	ctx.drawImage(frog, sx, sy, swidth, sheight, x, y, width, height);
 }
+//frog movement
 //want our frog to face right if he is moving to the right and left if he is moving to the left
 function moveFrog(){
-  //code will restrict up movement
+  //This code will restrict up movement
 	if (upPressed===true && up===true && y > 20) {
 	y = y - 44;
 	up = false;
@@ -178,7 +193,7 @@ function moveFrog(){
 if (upPressed===false) {
 	up = true;
 	}
-//restrict down movement
+//This code will restrict down movement off canvas
 if (downPressed===true && down===true && y + height < canvas.height - 80) {
 	y = y + 44;
 	down = false;
@@ -187,7 +202,7 @@ if (downPressed===true && down===true && y + height < canvas.height - 80) {
 if (downPressed===false) {
 	down = true;
 	}
-//will restrict right movement
+//This code will restrict right movement off canvas
 if (rightPressed===true && right===true && x + width < canvas.width-20) {
 	x = x + 44;
 	right = false;
@@ -196,7 +211,7 @@ if (rightPressed===true && right===true && x + width < canvas.width-20) {
 if (rightPressed===false) {
 	right = true;
 	}
-//will restrict left movement
+//This code will restrict left movement off canvas
 if (leftPressed===true && left===true && x > 20) {
 	x = x - 44;
 	left = false;
@@ -206,18 +221,20 @@ if (leftPressed===false) {
 	left = true;
 	}
 }
-
+//use the drawImage() method to draw an image to represent our car
+//we need to initialize all the variables for our drawImage method
 function drawCars(){
-
+//eight cars total
+// create arrays for the variables that will need to be specified for each separate car
 	var carsSX = [carSX1, carSX2, carSX3, carSX4, carSX5, carSX6, carSX7, carSX8];
 	var carsX = [carX1, carX2, carX3, carX4, carX5, carX6, carX7, carX8];
 	var carsY = [carY1, carY2, carY3, carY4, carY5, carY6, carY7, carY8];
-
+//We want to make the car move across the canvas in a continuous loop, so we will need to vary the x position of the car.
 	for (i = 0; i < carsX.length; i++){
 		ctx.drawImage(car, carsSX[i], 0, 60, 35, carsX[i], carsY[i], carWidth, carHeight);
 	}
 }
-
+//Math.random generates a number between 0 and 1 and Math.floor rounds down to the nearest whole number, so our code should generate a random integer of 0, 1, 2, or 3
 function moveCars(){
 
  if (carX1 < canvas.width + 100) {
@@ -286,6 +303,7 @@ function moveCars(){
 }
 
 //function that will check to see if the frog and the car are overlapping
+//overlapping (colliding) we will simply reset the y position of the frog to near the bottom of the canvas
 function runOver (){
 
 	var carsX = [carX1, carX2, carX3, carX4, carX5, carX6, carX7, carX8];
@@ -303,6 +321,8 @@ function runOver (){
 }
 
 function drawLogs(){
+//Use JavaScript’s fillStyle and fillRect methods to create a rectangle
+//rectangles that the frog will be able to float on to get across the water to reach the top of the canvas
 	ctx.fillStyle = "brown";
 	var logsX = [logX1, logX2, logX3, logX4, logX5, logX6, logX7, logX8];
 	var logsY = [logY1, logY2, logY3, logY4, logY5, logY6, logY7, logY8];
@@ -369,9 +389,10 @@ function moveLogs(){
 		 logX8 = canvas.width + 100;
 		 }
 }
-// function to check if any part of the log rectangle is “overlapping” the frog’s space
+// function to check if any part of the log rectangle is “overlapping” the frog’s space,only checking for y less than 220 because that is where the “water” begins.
 //If you preview in browser, the frog should be able to float on the log and return to the bottom if it hits the water.
 function float(){
+  //After entering this code all logs should allow frog floating
 	if (logX1 <= x + width &&
 				logX1 + logWidth >= x &&
 				logY1 + logHeight >= y &&
@@ -398,7 +419,6 @@ function float(){
 						x = x - 2;
 					}
 	}
-
 	else if (logX4 <= x + width &&
 				logX4 + logWidth >= x &&
 				logY4 + logHeight >= y &&
@@ -449,7 +469,7 @@ function float(){
 		lives = lives -1;
 		}
 }
-
+// program the game so that if a frog reaches a pad, an image of the frog will remain on the pad and the frog will return to the bottom of the canvas.
 function drawPads(){
 	ctx.fillStyle = "seagreen";
 	var padsX = [padX1, padX2, padX3, padX4, padX5, padX6];
@@ -534,7 +554,7 @@ function drawLives() {
 }
 
 function timer() {
-	// display shrinking rectangle
+	// timer is a displayed shrinking rectangle
 	if (time >= 0 && play === true){
 	ctx.fillStyle = "red";
 	ctx.fillText("TIMER:", 10, 525);
@@ -542,11 +562,12 @@ function timer() {
 	time = time - 0.1;
 	}
 }
-//replay button appears
+//replay button appears on game completion
+// will draw text  when the player frog wins
 function winScreen() {
-	ctx.fillStyle = "#dfff80";
+	ctx.fillStyle = "#0000FF";
 	ctx.fillRect(0,0,canvas.width,canvas.height);
-	ctx.fillStyle = "#9422DF";
+	ctx.fillStyle = "#FFFFFF";
 	ctx.fillRect(canvas.width/2 - 120,320,240,140);
 	ctx.font = "72px Arial";
 	ctx.fillText("GAME OVER", 60, 160);
@@ -556,10 +577,11 @@ function winScreen() {
 	ctx.fillText("REPLAY", 200, 400);
 }
 //replay button appears
+// will draw text when the frog runs out of lives
 function loseScreen() {
-	ctx.fillStyle = "#dfff80";
+	ctx.fillStyle = "#DF223B";
 	ctx.fillRect(0,0,canvas.width,canvas.height);
-	ctx.fillStyle = "#9422DF";
+	ctx.fillStyle = "#FFFFFF";
 	ctx.fillRect(canvas.width/2 - 120,320,240,140);
 	ctx.font = "72px Arial";
 	ctx.fillText("GAME OVER", 60, 160);
@@ -567,8 +589,11 @@ function loseScreen() {
 	ctx.fillStyle = "black";
 	ctx.fillText("REPLAY", 200, 400);
 }
-//executes all functions within the game
+
+// With the requestAnimationFrame loop, the draw() function will be executed every time your screen refreshes.
+//Add the If statement in the draw() function to determine whether the gameOver() and drawLives() functions are executed.
 function draw(){
+//Add the clearRect method as shown to clear the canvas with each execution of the draw function.
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 	if(lives<=0 || time<=0){
@@ -602,7 +627,7 @@ function draw(){
 		drawLives();
 		timer();
 	}
-
+//Defining a drawing loop for animation
 	requestAnimationFrame(draw);
 }
 draw();
