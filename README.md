@@ -1,6 +1,6 @@
 # FroggerArcadeGame
 
-Ready to get your leap on? The game is not easy but be patient you can do it. Get a frog to every lily pad and you are a Winner! Watch out for traffic and use the floating logs along the way.
+Ready to get your leap on? Get a frog to every lily pad and you are a Winner! Watch out for traffic and use the floating logs along the way.
 
 ## Installing from Source
 
